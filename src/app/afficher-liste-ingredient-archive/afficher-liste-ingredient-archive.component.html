@@ -1,0 +1,10 @@
+<div class="p-5 card text-center">
+    <h1><strong>Afficher ma liste de courses</strong></h1>
+</div>
+  
+  <div class="bisque">
+    <div class="wrapper">
+      <div class="item" *ngFor="let ingredient of liste">
+        <div class="caption">{{ ingredient.ingredient.nom }} {{ ingredient.quantite }} {{ ingredient.mesure}}</div>
+    </div>
+  </div>

@@ -1,0 +1,12 @@
+<div class="p-5 card text-center">
+  <h1><strong>Mes recettes</strong></h1>
+</div>
+<div style="background-color: bisque;">
+  <div class="wrapper">
+    <div class="item" *ngFor="let recette of recetteList" (click)="selectRecette(recette.id)">
+      <div class="polaroid"><img src="{{recette.photo}}">
+        <div class="caption">{{recette.nom}} - {{recette.niveau}} - <i>{{recette.temps}}</i></div>
+      </div>
+    </div>
+  </div>
+</div>

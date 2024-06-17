@@ -1,0 +1,121 @@
+<div  style="background-color: bisque;">
+    <div class="row justify-content-start">
+      <div class="col-md-6 col-sm-12 p-4">
+        <br>
+          <div class="card p-5">
+           <div class="card-body">
+              <h2 class="text-center mb-4"><i class="fa fa-utensils"></i> Création de recette</h2>
+                <form #fConnect="ngForm" (ngSubmit)="creationRecette(fConnect.value)">
+                  <div class="form-group">
+                    <label for="inputName" class="form-label">Nom</label>
+                    <input ngModel type="text" class="form-control" id="inputName" name="nom" required>
+                  </div>
+                  <select ngModel class="form-select" aria-label="Default select example" name="niveau">
+                    <option selected>Sélectionner la difficultée</option>
+                    <option value="Facile">Facile</option>
+                    <option value="Moyen">Moyen</option>
+                    <option value="Difficile">Difficile</option>
+                  </select>
+                  <div class="form-group">
+                    <label class="form-label">Nombre de personne</label>
+                    <input ngModel type="text" class="form-control" id="inputLogin" name="nombrePersonne" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Photo</label>
+                    <input ngModel type="text" class="form-control" name="photo" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Temps</label>
+                    <input ngModel type="text" class="form-control" name="temps" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea ngModel class="form-control" name="description" required></textarea>
+                  </div>              
+                  <div> 
+                    <button type="submit" class="btn btn-warning register-button register-button:hover">Ajouter la recette</button>
+                  </div>
+                </form>
+           </div>
+          </div>
+          <div>
+            <button class="btn btn-primary text-center mx-auto" routerLink="/recette"> Finir et aller à mes recettes </button>
+          </div> 
+        </div>
+        <br> <br>
+        <div class="col-md-6 col-sm-12 p-4">
+          <br>
+          <div class="card p-5">
+            <div class="card-body">
+              <h2 class="text-center mb-4"><i class="fa fa-carrot"></i> Ingrédients de la recette</h2>
+            <form [formGroup]="form" (ngSubmit)="addIngredientRecette(recetteId)">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Ingrédient(s)</mat-label>
+                      <input required type="text"
+                        formControlName="ingredient"
+                        placeholder="Choisissez un ingrédient"
+                        aria-label="Number"
+                        matInput
+                        [formControl]="ingredientControl"
+                        [matAutocomplete]="auto2">
+                        <mat-autocomplete autoActiveFirstOption #auto2="matAutocomplete">
+                          <mat-option *ngFor="let ingredient of ingredientOptions | async" [value]="ingredient">
+                          {{ingredient}}
+                          </mat-option>
+                        </mat-autocomplete>
+                  </mat-form-field>
+              
+                  <mat-form-field class="example-full-width">
+                   <mat-label>Quantité</mat-label>
+                    <input required matInput placeholder="quantité" type="number" formControlName="quantite">
+                  </mat-form-field>
+              
+                  <mat-form-field class="example-full-width" appearance="fill">
+                   <mat-label>Unité</mat-label>
+                     <input required type="text"
+                        formControlName="unite"
+                        placeholder="Choisissez une unité"
+                        aria-label="Number"
+                        matInput
+                        [formControl]="uniteControl"
+                        [matAutocomplete]="auto">
+                          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                            <mat-option *ngFor="let unite of uniteOptions | async" [value]="unite">
+                             {{unite}}
+                           </mat-option>
+                         </mat-autocomplete>
+                  </mat-form-field>
+                  <br>
+                  <button type="submit" class="btn btn-warning register-button register-button:hover">Ajouter l'ingrédient</button>
+            </form>
+            <br>
+            <div class="col">
+              <h2>Liste des ingrédients ajoutés :</h2>
+                <ul>
+                 <div *ngFor="let ingredient of recette">
+                  <br>
+                    <div class="row">
+                      <div class="col card p-4">
+                        {{ ingredient.quantite }} {{ ingredient.unite }} - {{ ingredient.ingredient.nom }} 
+                      
+                      </div>
+                      <br>
+                      <div class="col-auto">
+                        <button type="button" class="btn btn-danger"  (click)="deleteIngredient(ingredient.id)">X</button>
+                         
+                      </div>
+                      <br>
+                    </div>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+     
+               
+
+  

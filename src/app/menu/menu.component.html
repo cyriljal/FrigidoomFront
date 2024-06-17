@@ -1,0 +1,33 @@
+<div *ngIf="authService.isConnected()">
+<nav class="navbar navbar-expand-custom navbar-mainbg">
+        <a class="navbar-brand navbar-logo" href="/accueil">FrigiDoom</a>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+                <li class="nav-item">
+                    <a class="nav-link"  routerLink="/frigo"><i class="fa fa-hamburger"></i>Mon frigo</a> 
+				</li>
+                <li class="nav-item">
+                    <a class="nav-link"  routerLink="/course"><i class="fa fa-list" ></i>Courses</a>
+                </li>
+				<li class="nav-item">
+                    <a class="nav-link"  routerLink="/touteslesrecette"><i class="fa fa-utensils" ></i>Recettes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  routerLink="/evenementList"><i class="fa fa-glass-cheers" ></i>Evenements</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  routerLink="/ami"><i class="fa fa-users" ></i>Mes amis</a>
+                </li>
+                <li class="nav-item">
+                         <a class="nav-link"  routerLink="/profil"><i class="fa fa-user"></i>Mon profil</a>
+           </li>
+                <li class="nav-item">
+                    <a class="nav-link"  (click)="authService.deconnexion()" ><i class="fa fa-power-off"></i>Deconnexion</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+

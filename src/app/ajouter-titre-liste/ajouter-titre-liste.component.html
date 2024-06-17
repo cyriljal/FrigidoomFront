@@ -1,0 +1,9 @@
+<form [formGroup]="form" (ngSubmit)="addTitreListe()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Ajouter le titre</mat-label>
+    <input matInput formControlName="title" placeholder="Ex. Ma liste de course" required>
+  </mat-form-field>
+  <div>
+    <button mat-raised-button color="primary" [disabled]="form.invalid">Valider</button>
+  </div>
+</form>

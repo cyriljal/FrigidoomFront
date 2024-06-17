@@ -1,0 +1,43 @@
+<div style="background-color: bisque;">
+  <div class="wrapper"  >
+    <br>
+    <div class="container card p-3" style="border-radius: 20px;">
+      <h2 class="text-center"><strong><i class="fa fa-glass-cheers"></i> Evènements :</strong></h2>
+      <br>
+      <hr>
+      <br>
+      
+
+      <div  *ngFor="let participe of evenementList">
+        <div>
+          <div class="caption">
+            Intitulé : <b>{{participe.evenement.type}}</b>   <br>
+            Adresse : <i> {{participe.evenement.adresse}}</i> <br>
+            Date : <i> {{participe.evenement.date}} </i><br>
+            Organisateur : {{participe.evenement.organisateur.nom}} {{participe.evenement.organisateur.prenom}} <br>
+            Description : {{participe.evenement.description}}  <br>
+            <div>
+              <button class="btn btn-primary" (click)="modifierEvenement(participe.evenement.id)" *ngIf="participe.evenement.organisateur.id === authService.getUserConnect().id">Modifier un evenement</button>
+              <button class="btn btn-primary" (click)="redirectToFrigo(participe.evenement.id)">Afficher le frigo partagé</button>
+              <button class="btn btn-primary" (click)="supprimerEvenement(participe.evenement.id)" *ngIf="participe.evenement.organisateur.id === authService.getUserConnect().id" >Annuler l'évènement</button>
+            </div>
+            <div>
+              <label>Participants :</label>
+              <ul>
+                <li *ngFor="let participant of participantsList">
+                  {{ participant.participant.nom }} {{ participant.participant.prenom }}
+                </li>
+              </ul>
+            </div>     
+          </div>
+      
+          <hr>
+          
+        </div>
+      </div>
+    </div>
+
+      
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>

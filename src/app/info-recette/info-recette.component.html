@@ -1,0 +1,58 @@
+<div style="background-color: bisque;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="text-center">
+          <br>
+          <div class="p-2 card text-center" style="border-radius: 20px;">
+            <h1><strong><div [innerHTML]="formatText(recette.nom)"></div></strong></h1>
+          </div>
+          <br>
+          <img src="{{recette.photo}}" alt="" class="rounded-circle" style="width: 400px; height: 400px;">
+        </div>
+        <br>
+        <div class="p-2 card text-center" style="border-radius: 20px;">
+          <div [innerHTML]="formatText(recette.description)"></div>
+        </div>
+        <br>
+        
+      </div>
+      <div class="col-lg-6">
+        
+        <br>
+        <div class="container card p-3" style="border-radius: 20px;">
+          <h2 class="text-center"><strong><i class="fa fa-utensils"></i> Ingrédients :</strong></h2>
+          <div *ngFor="let IngredientRecette of listIngredientRecette">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{IngredientRecette.quantite}} {{IngredientRecette.unite}} - {{IngredientRecette.ingredient.nom}}</li>
+            </ul>
+          </div>
+        </div>
+        <br>
+        <div class="container card p-3" style="border-radius: 20px;">
+          <h2 class="text-center"><strong><i class="fa fa-utensils"></i> Niveau :</strong></h2>
+          <div *ngFor="let item of recette | keyvalue">
+            <p *ngIf="item.key === 'niveau'">{{item.value}}</p> <!--Pour afficher le niveau de la recette. Recette ne contient qu'une seule valeur de niveau-->
+          </div>                         
+        </div>
+        <br>
+        <div class="container card p-3" style="border-radius: 20px;">
+          <h2 class="text-center"><strong><i style="color: gold" class="fa fa-star"></i> Avis :</strong></h2>
+          <div *ngFor="let avis of listAvis">
+            <ul class="list-group list-group-flush card p-2 " style="border-radius: 20px;" >
+              <li class="list-group-item"><strong>{{avis.utilisateur.nom}} {{avis.utilisateur.prenom}}</strong> - {{avis.commentaire}} - <strong>NOTE : </strong>{{avis.note}} / 20</li>
+            </ul>
+          </div>
+          <br>
+          <div class="d-flex justify-content-center">
+            <button class="btn btn-primary" (click)="addAvis(recette.id)"><i class="fa fa-plus"></i> Ajouter un avis</button>
+          </div>
+        </div>
+        <div *ngIf="recette.utilisateur.id === authService.getUserConnect().id">
+          <button class="btn btn-primary" [routerLink]="['/modifierRecette', recetteId]">Modifier ma recette</button>
+        </div>        
+      </div>
+    </div>
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+</div>

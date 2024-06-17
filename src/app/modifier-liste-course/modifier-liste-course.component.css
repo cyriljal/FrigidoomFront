@@ -1,0 +1,28 @@
+/**FORM*/
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  
+  .input-container {
+      display: inline-block;
+      margin-right: 20px;
+    }
+  
+/**DELETE INGREDIENT*/
+.col-auto {
+  display: flex;
+  align-items: center;
+}
+  
+button.delete {
+  font-size: inherit;
+  padding: 0.05rem 0.25rem;
+}

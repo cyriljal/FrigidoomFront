@@ -1,0 +1,49 @@
+
+<!-- Font Awesome --> <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"> <!-- Google Fonts --> <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"> <!-- Bootstrap core CSS --> <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"> <!-- Material Design Bootstrap --> <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet"> <!-- JQuery --> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- Bootstrap tooltips --> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script> <!-- Bootstrap core JavaScript --> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script> <!-- MDB core JavaScript --> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+   
+<div  style="background-color: bisque;">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-sm-12">
+        <div class="card p-5">
+          <div class="card-body">
+            <h2 class="text-center mb-4">Modifier mes informations</h2>
+            <form #fConnect="ngForm" (ngSubmit)="modifUser(fConnect.value)">
+                          
+              <div class="form-group">
+                <label class="form-label">Nom</label>
+                <input [value]="defaultValue" [(ngModel)]="user.nom" type="text" class="form-control" name="nom" required value="{{user.nom}}">
+              </div>
+              <div class="form-group">
+                <label for="inputName" class="form-label">Prenom</label>
+                <input [value]="defaultValue" [(ngModel)]="user.prenom" type="text" class="form-control" id="inputName" name="prenom" required value="{{user.prenom}}">
+              </div>
+             
+              <div class="form-group">
+                <label class="form-label">Login</label>
+                <input [value]="defaultValue" [(ngModel)]="user.login" type="text"   class="form-control" name="login" required >
+              </div>
+              <div class="form-group">
+                <label for="inputName" class="form-label">Mot de passe</label>
+                <input [value]="defaultValue" [(ngModel)]="user.mdp" type="text" class="form-control" id="inputName" name="mdp" required value="{{user.mdp}}">
+              </div>
+             
+              <div class="form-group">
+                <label class="form-label">Mail</label>
+                <input [value]="defaultValue" [(ngModel)]="user.mail" type="email" class="form-control" name="mail" required value="{{user.mail}}">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Adresse</label>
+                <input [value]="defaultValue" [(ngModel)]="user.adresse" type="email" class="form-control" name="adresse" required    value="{{user.adresse}}">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Date de naissance</label>
+                <input [value]="defaultValue" [(ngModel)]="user.dateNaissance" type="date" class="form-control" name="dateNaissance" required    value="{{user.adresse}}">
+              </div>
+             <div> <button type="submit" class="btn btn-warning register-button register-button:hover"  >Modifier mes infos</button></div>
+             </form>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+  

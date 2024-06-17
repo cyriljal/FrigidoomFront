@@ -1,0 +1,41 @@
+<div style="background-color: bisque;">
+  <div class="wrapper"  >
+    <br>
+    <div class="container card p-3" style="border-radius: 20px;">
+      <h2 class="text-center"><strong><i class="fa fa-clock"></i> Evènements en attente: </strong></h2>
+      <br>
+      <hr>
+      <br>
+      
+
+      <div  *ngFor="let participe of evenementList">
+        <div>
+          <div class="caption">
+            Intitulé : <b>{{participe.evenement.type}}</b>  {{participe.evenement.date}} <br>
+            Adresse : <i> {{participe.evenement.adresse}}</i> <br>
+            Organisateur : {{participe.evenement.organisateur.nom}} {{participe.evenement.organisateur.prenom}} <br>
+            <div>
+              <label>Participants :</label>
+              <ul>
+                <li *ngFor="let participant of participantsList">
+                  {{ participant.participant.nom }} {{ participant.participant.prenom }}
+                </li>
+              </ul>
+            </div>
+            <button  class="btn btn-primary" (click)="acceptEvenement(participe.id)" >Accepter l'évènement</button>
+            <button class="btn btn-primary" >Refuser l'évènement</button>
+           
+
+            <!-- Participants : {{participe.evenement.participant.nom}} {{participe.evenement.participant.prenom}}  <br> <br> 
+       -->    </div>
+      
+          <hr>
+          
+        </div>
+      </div>
+    </div>
+
+      
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>

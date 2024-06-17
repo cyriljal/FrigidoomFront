@@ -1,0 +1,26 @@
+<div style="background-color: bisque;">
+
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-sm-12">
+        <br>
+        <div class="card p-5" style="border-radius: 20px;">
+          <div class="card-body">
+            <h2 class="text-center mb-4"><i class="fa fa-users"></i> Ajouter un ami</h2>
+            <form #fConnect="ngForm" (ngSubmit)="ajoutAmi(fConnect.value)">
+              <div class="form-group">
+                <label for="inputName" class="form-label">Login</label>
+                <input type="text" class="form-control" id="inputName" [(ngModel)]="receveur.login"  name="idReceveur.id.login" required>
+              </div>
+              <div>
+                
+                <button type="submit" class="btn btn-warning register-button register-button:hover">Ajouter l'ami</button>
+                <div class="error-message text-danger" *ngIf="msgErr">{{ msgErr }}</div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </div>
+  

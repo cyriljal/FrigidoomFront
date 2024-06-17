@@ -1,0 +1,28 @@
+<div class="card p-4">
+  <h1 class="text-center"><strong><i class="fa fa-users"></i> Amis :</strong></h1>
+</div>
+
+<div style="background-color: bisque;">
+    <br> <div  *ngFor="let userAmi of amiList">
+    <div class="container card p-3" style="border-radius: 20px;">
+      <hr>
+        <div>
+          <div class="caption">
+            <br>
+            Nom : <b>{{userAmi.nom}}</b> 
+           <br>
+            Prenom : <i> {{userAmi.prenom}}</i> <br> 
+            <div *ngFor="let ami of ListDemande.slice(0,1)"> 
+            <button class="btn btn-primary" (click)="voirFrigoAmi(userAmi.id)">Voir le frigo de l'ami</button>
+            <button class="btn btn-primary"  (click)="supprimerAmi(ami.id)">Supprimer l'ami</button>  
+          </div>
+           </div>
+        </div>
+    </div>
+    <br>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+      
+  </div>
+ 

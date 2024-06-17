@@ -1,0 +1,44 @@
+<div class="card p-4">
+    <h1 class="text-center"><strong><i class="fa fa-users"></i> Demandes d'ami :</strong></h1>
+  </div>
+  
+  <div style="background-color: bisque;">
+      <br> 
+      <div *ngFor="let ami of amiList"> 
+                    <div class="container card p-3" style="border-radius: 20px;">
+                            <hr>
+                        <div>
+                            
+                                    <div class="caption">
+                                        <div *ngIf="ami.idReceveur.id != this.authService.getUserConnect().id">
+                                        
+                                       
+                                       <br>
+                                        Nom receveur : <b>{{ami.idReceveur.nom}}</b> 
+                                        <br>
+                                        Prenom receveur : <i> {{ami.idReceveur.prenom}}</i> <br> 
+                                        
+                                    </div>
+                                        <div *ngIf="ami.idReceveur.id === this.authService.getUserConnect().id">
+                                            <br>
+                                            Nom demandeur : <b>{{ami.idDemandeur.nom}}</b> 
+                                            <br>
+                                            Prenom demandeur : <i> {{ami.idDemandeur.prenom}}</i> <br> 
+                                            </div>
+                                        
+                                            <div *ngIf="ami.idReceveur.id === this.authService.getUserConnect().id"><button class="btn btn-primary" (click)="accepterAmi(ami.id)">Accepter l'ami</button></div>
+                                            <div *ngIf="ami.idReceveur.id != this.authService.getUserConnect().id"><button class="btn btn-primary"  (click)="supprimerAmi(ami.id)">Annuler la demande d'ami</button></div>
+                                            <div *ngIf="ami.idReceveur.id === this.authService.getUserConnect().id"><button class="btn btn-primary" (click)="supprimerAmi(ami.id)">Refuser l'ami</button></div>
+
+                                        
+                                        </div>
+                                </div>
+                            <br>
+                        </div>
+                    
+                    </div>   
+    
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  
+</div>
+   

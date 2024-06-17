@@ -1,0 +1,96 @@
+
+  
+<!-- Font Awesome --> <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"> <!-- Google Fonts --> <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"> <!-- Bootstrap core CSS --> <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"> <!-- Material Design Bootstrap --> <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet"> <!-- JQuery --> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- Bootstrap tooltips --> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script> <!-- Bootstrap core JavaScript --> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script> <!-- MDB core JavaScript --> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+
+  <div  style="background-color: bisque;">
+  <br>
+  <ul>
+    <li>
+      <a routerLink="/frigo">
+        <h2><i class="fa fa-hamburger"></i>  Frigo</h2>
+       <hr class="hr-thick">
+        <div *ngFor="let ingredientCourse of ingredientList.slice(0,5)">
+           <p> <li class="text-center">{{ingredientCourse.quantite}} {{ingredientCourse.ingredient.nom}}</li></p>
+        </div>
+        <br>
+        <button class="btn-block" routerLink="/frigo"class="card-link">Voir mon frigo</button>
+      </a>
+    </li>
+    <li>
+      <a >
+        <h2><i class="fa fa-utensils"></i>  Recettes</h2>
+        <hr class="hr-thick">
+        <div *ngFor="let recette of recetteList.slice(0,3)">
+        <li class="text-center">{{recette.nom}} </li>
+      </div>
+    <br>
+    <br>
+      <button class="btn-block" routerLink="/recette"class="card-link">Mes recettes</button>
+      <button class="btn-block" (click)="ajoutRecette()" class="card-link">Ajouter une recette</button>
+    </a>
+      </li>
+      <li>
+        <a >
+          <h2><i class="fa fa-glass-cheers"></i> Evenements </h2>
+          <hr class="hr-thick">
+          <div *ngFor="let participe of evenementList.slice(0,5)">
+            <li class="text-center">{{participe.evenement.type}} {{participe.evenement.date}} </li>
+          </div>
+        <br>
+        <br>
+       
+          <button class="btn-block" (click)="ajoutEvenement()" class="card-link">Ajouter un événement</button>
+          <button class="btn-block" routerLink="/evenementAttente"class="card-link">Evenements en attente : <strong>{{ nombreEvenementEnAttente }}</strong>
+           
+          </button>
+          <br>
+          <button class="btn-block" routerLink="/evenementList" class="card-link">Mes événements : <strong>{{ nombreEvenements }}</strong></button>
+        </a>
+      </li>
+      <li>
+        <a >
+          <h2><i class="fa fa-users"></i> Amis</h2>
+          <hr class="hr-thick">
+          <div *ngFor="let ami of amiList.slice(0,5)">
+             <p> <li class="text-center">{{ami.nom}} {{ami.prenom}}</li></p>
+          </div>
+          
+          <br>
+          <button class="btn-block" routerLink="/ajoutAmi">Ajouter un ami</button>
+
+          <button class="btn-block" routerLink="/ami">Voir mes amis : <strong>{{nombreAmis}}</strong></button>
+          <button class="btn-block" routerLink="/demandeAmi">Voir mes demandes d'ami : <strong>{{nombreDemandeAmis}}</strong></button>
+          
+        </a>
+      </li>
+      <li>
+        <a>
+          <h2><i class="fa fa-list"></i> Liste de course</h2>
+          <hr class="hr-thick">
+          <div *ngFor="let course of CourseList.slice(0,5)">
+            <li class="text-center">{{course.titre}} <i>{{course.dateCreation}} </i></li>
+            </div>
+                <br>
+                <br>
+                <br>
+                <button class="btn-block" routerLink="/course">Accéder à mes listes</button> 
+                <button class="btn-block" (click)="ajoutListe()">Ajouter une nouvelle liste de course</button>
+        </a>
+        </li>
+        <li>
+          <a >
+            <h2><i class="fa fa-user"></i> Informations personnelles</h2>
+            <hr class="hr-thick">
+          <li class="list-group-item">Nom : {{ user.nom }}</li>
+          <li class="list-group-item">Prenom : {{ user.prenom }}</li>
+          <li class="list-group-item">Login : {{user.login}}</li>
+          <button class="btn-block" (click)="modifUtilisateur()"     >Modifier infos</button> 
+          <!--<button class="btn-block" (click)="supprCompte()">Supprimer mon compte</button>--> 
+          </a>
+        </li>
+  </ul>
+       <br><br><br><br><br><br><br><br>
+       <br><br><br><br><br><br><br><br>
+       <br><br><br><br><br><br><br><br>
+</div>

@@ -1,0 +1,74 @@
+<br><br>
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+
+      <form #fConnect="ngForm" (ngSubmit)="addTitreListe(fConnect.value)">
+        <div class="form-group">
+          <label for="inputName" class="form-label">Titre de la liste de course</label>
+          <input ngModel type="text" class="form-control" id="inputName" name="titre" required>
+        </div>
+        <button mat-raised-button color="primary" type="submit">Valider le titre</button>
+        <mat-icon *ngIf="formSubmitted && fConnect.valid" class="ml-2">check_circle</mat-icon>
+      </form>
+<br><br>
+      <form [formGroup]="form" (ngSubmit)="addIngredient(listeId)">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Entrez un ingrédient</mat-label>
+          <input required type="text"
+                formControlName="ingredient"
+                placeholder="Choisissez un ingrédient"
+                aria-label="Number"
+                matInput
+                [formControl]="ingredientControl"
+                [matAutocomplete]="auto2">
+          <mat-autocomplete autoActiveFirstOption #auto2="matAutocomplete">
+            <mat-option *ngFor="let ingredient of ingredientOptions | async" [value]="ingredient">
+              {{ingredient}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+            <mat-label>Entrez une quantité</mat-label>
+          <input required matInput placeholder="quantité" type="number" formControlName="quantite">
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Entrez une unité de mesure</mat-label>
+            <input required type="text"
+                  formControlName="mesure"
+                  placeholder="Choisissez une unité de mesure"
+                  aria-label="Number"
+                  matInput
+                  [formControl]="mesureControl"
+                  [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let mesure of mesureOptions | async" [value]="mesure">
+                {{mesure}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit">Valider l'ingrédient</button>
+      </form>
+    </div>
+
+    <div class="col">
+      <h2>Liste des ingrédients ajoutés</h2>
+      <ul>
+        <li *ngFor="let ingredient of liste">
+          <div class="row">
+            <div class="col" style="text-align: left;">{{ ingredient.ingredient.nom }} {{ ingredient.quantite }} {{ ingredient.mesure }}</div>
+            <div class="col-auto">
+               <button type="button" class="btn btn-danger delete" (click)="deleteIngredient(ingredient.id)" >
+                <mat-icon>clear</mat-icon>
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <br> <br><br><br>
+  <button class="btn btn-primary" routerLink="/course"> C'est fini </button>
+</div>

@@ -1,0 +1,14 @@
+<div class="p-5 card text-center">
+<h1><strong> Recettes proposées</strong></h1>
+</div>
+<div style="background-color: bisque;">
+  <div class="wrapper"  >
+
+      <div class="item" *ngFor="let recette of recetteList.slice(0,6)">
+        <div class="polaroid" (click)="selectRecette(recette.id)"><img src="{{recette.photo}}">
+          <div class="caption">{{recette.nom}} - {{recette.niveau}} - <i>{{recette.temps}}</i></div>
+          
+        </div>
+      </div>
+  </div>
+</div>

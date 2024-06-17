@@ -1,0 +1,14 @@
+<!--Quand on n'est pas connecté, on arrive sur le menuAccueil-->
+<div *ngIf="!authService.isConnected()" style="background-color: bisque;">
+    <app-menu-accueil></app-menu-accueil>
+</div>
+
+<div *ngIf="authService.isConnected()" style="background-color: bisque;"> <!--si user non connecté, verra le menu accueil-->
+
+    <app-menu>
+    </app-menu> 
+
+</div>
+
+
+<router-outlet></router-outlet>

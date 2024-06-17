@@ -1,0 +1,28 @@
+<form #fConnect="ngForm" (ngSubmit)="proposeRecette()"ngForm>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <br>
+          <div class="card p-3 mb-3" style="border-radius: 20px;">
+            <h2 class="text-center"><strong><i class="fa fa-utensils"></i> Ingrédients :</strong></h2>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" *ngFor="let ingredientCourse of ingredientList">
+                <input class="form-check-input me-1" type="checkbox" [(ngModel)]="ingredientCourse.utilisation" name="utilisation" (change)="updateUtilisation(ingredientCourse)">
+                <label class="form-check-label">{{ingredientCourse.quantite}} {{ingredientCourse.mesure}} - {{ingredientCourse.ingredient.nom}}</label>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+        <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+          <div class="card p-3 mb-3" style="border-radius: 20px;">
+            <img src="https://cdn-icons-png.flaticon.com/512/4352/4352975.png" alt="" style="max-width: 100%;">
+          </div>
+          <div class="card p-3" style="border-radius: 20px;">
+            <button type="submit" class="btn btn-primary">Me proposer des recettes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  

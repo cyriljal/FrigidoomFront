@@ -1,0 +1,34 @@
+<div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <br>
+        <div class="card p-3 mb-3" style="border-radius: 20px;">
+          <h2 class="text-center"><strong><i class="fa fa-utensils"></i> Ingrédients :</strong></h2>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let ingredientCourse of ingredientList">
+             <div class="row align-items-center">
+              <div class="col-auto">
+                <input class="form-check-input me-1" type="checkbox" [(ngModel)]="ingredientCourse.utilisation" name="utilisation" (change)="updateUtilisation(ingredientCourse)">
+              </div>
+              <div class="col">
+                <label class="form-check-label">{{ingredientCourse.quantite}} {{ingredientCourse.mesure}} - {{ingredientCourse.ingredient.nom}}</label>
+              </div>
+              <div class="col-auto">
+                <button type="button" class="btn btn-danger delete" (click)="deleteIngredient(ingredientCourse.id)">X</button>
+              </div>
+             </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+        <br>
+         <div class="card p-3 mb-3" style="border-radius: 20px;">
+          <img src="https://cdn-icons-png.flaticon.com/512/4352/4352975.png" alt="" style="max-width: 100%;">
+          <button type="submit" class="btn btn-primary btn-sm mb-3" (click)="proposeRecette()">Me proposer des recettes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
